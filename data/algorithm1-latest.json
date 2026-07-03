@@ -1,0 +1,1758 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-03T10:55:00+08:00",
+  "description": "Algorithm1 first-pass data from Eastmoney expanded holdings year=2025 month=12 topLine=100.",
+  "funds": [
+    {
+      "code": "270023",
+      "name": "广发全球精选",
+      "mode": "algorithm1",
+      "source": "eastmoney-jjcc-year-2025-month-12",
+      "dataFetchedAt": "2026-07-03T10:55:00+08:00",
+      "reportDate": "2025-12-31",
+      "assetAllocation": {
+        "reportDate": "2026-03-31",
+        "stockPct": 87.14,
+        "bondPct": 0,
+        "cashPct": 9.84,
+        "depositaryReceiptPct": 0.2,
+        "otherPct": 2.8199999999999994,
+        "equityLikePct": 87.34
+      },
+      "latestEstimate": {
+        "tradeDate": "2026-07-02",
+        "beijingTime": "2026-07-03 04:00",
+        "holdingCount": 169,
+        "holdingWeightPct": 74.4,
+        "stockStyleReturnPct": -2.5466,
+        "fxPct": -0.1,
+        "rawEstimatePct": -2.3242,
+        "tunedEstimatePct": -2.3242,
+        "missing": [
+          "116.00883",
+          "116.00700",
+          "116.00981",
+          "116.00638",
+          "106.CTRA",
+          "116.00316"
+        ]
+      },
+      "holdings": [
+        {
+          "secid": "105.GOOG",
+          "name": "谷歌-C",
+          "weightPct": 6.48,
+          "returnPct": -0.4778,
+          "contributionPct": -0.031
+        },
+        {
+          "secid": "105.NVDA",
+          "name": "英伟达",
+          "weightPct": 5.67,
+          "returnPct": -1.3918,
+          "contributionPct": -0.0789
+        },
+        {
+          "secid": "105.AAPL",
+          "name": "苹果",
+          "weightPct": 4.93,
+          "returnPct": 4.8407,
+          "contributionPct": 0.2386
+        },
+        {
+          "secid": "105.AVGO",
+          "name": "博通",
+          "weightPct": 4.44,
+          "returnPct": -2.407,
+          "contributionPct": -0.1069
+        },
+        {
+          "secid": "105.AMZN",
+          "name": "亚马逊",
+          "weightPct": 3.71,
+          "returnPct": 0.4013,
+          "contributionPct": 0.0149
+        },
+        {
+          "secid": "105.LITE",
+          "name": "Lumentum Holdings Inc",
+          "weightPct": 3.64,
+          "returnPct": -9.0918,
+          "contributionPct": -0.3309
+        },
+        {
+          "secid": "105.MSFT",
+          "name": "微软",
+          "weightPct": 3.41,
+          "returnPct": 1.616,
+          "contributionPct": 0.0551
+        },
+        {
+          "secid": "106.PM",
+          "name": "菲利普莫里斯国际",
+          "weightPct": 2.79,
+          "returnPct": 2.5775,
+          "contributionPct": 0.0719
+        },
+        {
+          "secid": "105.SNDK",
+          "name": "闪迪",
+          "weightPct": 2.71,
+          "returnPct": -14.1333,
+          "contributionPct": -0.383
+        },
+        {
+          "secid": "105.TSLA",
+          "name": "特斯拉",
+          "weightPct": 2.62,
+          "returnPct": -7.4888,
+          "contributionPct": -0.1962
+        },
+        {
+          "secid": "105.META",
+          "name": "Meta Platforms Inc-A",
+          "weightPct": 2.35,
+          "returnPct": -4.8963,
+          "contributionPct": -0.1151
+        },
+        {
+          "secid": "105.TER",
+          "name": "泰瑞达",
+          "weightPct": 2.21,
+          "returnPct": -13.6308,
+          "contributionPct": -0.3012
+        },
+        {
+          "secid": "116.09927",
+          "name": "赛力斯",
+          "weightPct": 1.34,
+          "returnPct": -0.087,
+          "contributionPct": -0.0012
+        },
+        {
+          "secid": "105.PDD",
+          "name": "拼多多",
+          "weightPct": 1.18,
+          "returnPct": -0.1575,
+          "contributionPct": -0.0019
+        },
+        {
+          "secid": "105.HOOD",
+          "name": "Robinhood Markets Inc-A",
+          "weightPct": 1.14,
+          "returnPct": 3.7552,
+          "contributionPct": 0.0428
+        },
+        {
+          "secid": "106.TSM",
+          "name": "台积电",
+          "weightPct": 1.07,
+          "returnPct": -2.2668,
+          "contributionPct": -0.0243
+        },
+        {
+          "secid": "105.TLN",
+          "name": "Talen Energy Corp",
+          "weightPct": 1.05,
+          "returnPct": 1.0754,
+          "contributionPct": 0.0113
+        },
+        {
+          "secid": "105.SNPS",
+          "name": "新思科技",
+          "weightPct": 1,
+          "returnPct": -3.8215,
+          "contributionPct": -0.0382
+        },
+        {
+          "secid": "0.300502",
+          "name": "新易盛",
+          "weightPct": 0.96,
+          "returnPct": -11.5644,
+          "contributionPct": -0.111
+        },
+        {
+          "secid": "0.300604",
+          "name": "长川科技",
+          "weightPct": 0.95,
+          "returnPct": -9.6533,
+          "contributionPct": -0.0917
+        },
+        {
+          "secid": "106.NOW",
+          "name": "现在服务公司",
+          "weightPct": 0.92,
+          "returnPct": 0.4915,
+          "contributionPct": 0.0045
+        },
+        {
+          "secid": "116.01288",
+          "name": "农业银行",
+          "weightPct": 0.9,
+          "returnPct": -0.5618,
+          "contributionPct": -0.0051
+        },
+        {
+          "secid": "116.00883",
+          "name": "中国海洋石油",
+          "weightPct": 0.87,
+          "returnPct": null,
+          "contributionPct": null
+        },
+        {
+          "secid": "116.00700",
+          "name": "腾讯控股",
+          "weightPct": 0.85,
+          "returnPct": null,
+          "contributionPct": null
+        },
+        {
+          "secid": "1.688249",
+          "name": "晶合集成",
+          "weightPct": 0.82,
+          "returnPct": -1.3871,
+          "contributionPct": -0.0114
+        },
+        {
+          "secid": "1.603993",
+          "name": "洛阳钼业",
+          "weightPct": 0.81,
+          "returnPct": 3.1585,
+          "contributionPct": 0.0256
+        },
+        {
+          "secid": "1.603986",
+          "name": "兆易创新",
+          "weightPct": 0.73,
+          "returnPct": -9.9999,
+          "contributionPct": -0.073
+        },
+        {
+          "secid": "0.300274",
+          "name": "阳光电源",
+          "weightPct": 0.71,
+          "returnPct": -6.6316,
+          "contributionPct": -0.0471
+        },
+        {
+          "secid": "105.APP",
+          "name": "Applovin Corp-A",
+          "weightPct": 0.65,
+          "returnPct": -6.6506,
+          "contributionPct": -0.0432
+        },
+        {
+          "secid": "105.RKLB",
+          "name": "Rocket Lab Corp",
+          "weightPct": 0.61,
+          "returnPct": 0.3897,
+          "contributionPct": 0.0024
+        },
+        {
+          "secid": "105.CEG",
+          "name": "Constellation Energy Corp",
+          "weightPct": 0.6,
+          "returnPct": 1.1628,
+          "contributionPct": 0.007
+        },
+        {
+          "secid": "105.NBIS",
+          "name": "Nebius Group NV-A",
+          "weightPct": 0.6,
+          "returnPct": -5.9167,
+          "contributionPct": -0.0355
+        },
+        {
+          "secid": "116.01801",
+          "name": "信达生物",
+          "weightPct": 0.59,
+          "returnPct": 7.2236,
+          "contributionPct": 0.0426
+        },
+        {
+          "secid": "0.300751",
+          "name": "迈为股份",
+          "weightPct": 0.55,
+          "returnPct": -13.106,
+          "contributionPct": -0.0721
+        },
+        {
+          "secid": "106.VST",
+          "name": "Vistra Corp",
+          "weightPct": 0.53,
+          "returnPct": -1.3776,
+          "contributionPct": -0.0073
+        },
+        {
+          "secid": "1.688012",
+          "name": "中微公司",
+          "weightPct": 0.52,
+          "returnPct": -11.4935,
+          "contributionPct": -0.0598
+        },
+        {
+          "secid": "106.CIEN",
+          "name": "Ciena科技",
+          "weightPct": 0.5,
+          "returnPct": -8.6454,
+          "contributionPct": -0.0432
+        },
+        {
+          "secid": "116.03988",
+          "name": "中国银行",
+          "weightPct": 0.45,
+          "returnPct": -3.6072,
+          "contributionPct": -0.0162
+        },
+        {
+          "secid": "105.CELH",
+          "name": "燃力士控股",
+          "weightPct": 0.43,
+          "returnPct": 4.0477,
+          "contributionPct": 0.0174
+        },
+        {
+          "secid": "116.00981",
+          "name": "中芯国际",
+          "weightPct": 0.43,
+          "returnPct": null,
+          "contributionPct": null
+        },
+        {
+          "secid": "105.SHOP",
+          "name": "Shopify Inc-A",
+          "weightPct": 0.42,
+          "returnPct": -1.7841,
+          "contributionPct": -0.0075
+        },
+        {
+          "secid": "116.01347",
+          "name": "华虹半导体",
+          "weightPct": 0.41,
+          "returnPct": -13.5223,
+          "contributionPct": -0.0554
+        },
+        {
+          "secid": "106.SAP",
+          "name": "思爱普",
+          "weightPct": 0.4,
+          "returnPct": 2.1615,
+          "contributionPct": 0.0086
+        },
+        {
+          "secid": "105.OPEN",
+          "name": "Opendoor Technologies Inc",
+          "weightPct": 0.39,
+          "returnPct": -0.8097,
+          "contributionPct": -0.0032
+        },
+        {
+          "secid": "1.688072",
+          "name": "拓荆科技",
+          "weightPct": 0.39,
+          "returnPct": 0,
+          "contributionPct": 0
+        },
+        {
+          "secid": "105.CRWV",
+          "name": "CoreWeave Inc-A",
+          "weightPct": 0.38,
+          "returnPct": -4.5982,
+          "contributionPct": -0.0175
+        },
+        {
+          "secid": "116.00638",
+          "name": "广和通",
+          "weightPct": 0.38,
+          "returnPct": null,
+          "contributionPct": null
+        },
+        {
+          "secid": "106.MP",
+          "name": "MP Materials Corp-A",
+          "weightPct": 0.37,
+          "returnPct": -1.787,
+          "contributionPct": -0.0066
+        },
+        {
+          "secid": "105.COST",
+          "name": "开市客",
+          "weightPct": 0.36,
+          "returnPct": 2.92,
+          "contributionPct": 0.0105
+        },
+        {
+          "secid": "106.CLS",
+          "name": "天弘科技",
+          "weightPct": 0.35,
+          "returnPct": -7.0267,
+          "contributionPct": -0.0246
+        },
+        {
+          "secid": "105.PANW",
+          "name": "派拓网络",
+          "weightPct": 0.33,
+          "returnPct": -1.1306,
+          "contributionPct": -0.0037
+        },
+        {
+          "secid": "105.CRWD",
+          "name": "CrowdStrike Holdings Inc-A",
+          "weightPct": 0.31,
+          "returnPct": 0.4115,
+          "contributionPct": 0.0013
+        },
+        {
+          "secid": "116.06090",
+          "name": "不同集团",
+          "weightPct": 0.3,
+          "returnPct": 0,
+          "contributionPct": 0
+        },
+        {
+          "secid": "105.ADBE",
+          "name": "奥多比",
+          "weightPct": 0.29,
+          "returnPct": 4.1426,
+          "contributionPct": 0.012
+        },
+        {
+          "secid": "1.603119",
+          "name": "浙江荣泰",
+          "weightPct": 0.28,
+          "returnPct": 1.1672,
+          "contributionPct": 0.0033
+        },
+        {
+          "secid": "0.300570",
+          "name": "太辰光",
+          "weightPct": 0.27,
+          "returnPct": -1.1202,
+          "contributionPct": -0.003
+        },
+        {
+          "secid": "116.02788",
+          "name": "创新实业",
+          "weightPct": 0.27,
+          "returnPct": -0.8734,
+          "contributionPct": -0.0024
+        },
+        {
+          "secid": "1.688037",
+          "name": "芯源微",
+          "weightPct": 0.26,
+          "returnPct": -11.7647,
+          "contributionPct": -0.0306
+        },
+        {
+          "secid": "106.RBLX",
+          "name": "Roblox Corp-A",
+          "weightPct": 0.24,
+          "returnPct": -4.3831,
+          "contributionPct": -0.0105
+        },
+        {
+          "secid": "1.688627",
+          "name": "精智达",
+          "weightPct": 0.22,
+          "returnPct": -12.082,
+          "contributionPct": -0.0266
+        },
+        {
+          "secid": "105.AMKR",
+          "name": "艾马克技术",
+          "weightPct": 0.21,
+          "returnPct": -12.9266,
+          "contributionPct": -0.0271
+        },
+        {
+          "secid": "105.AMD",
+          "name": "超威半导体",
+          "weightPct": 0.2,
+          "returnPct": -4.2634,
+          "contributionPct": -0.0085
+        },
+        {
+          "secid": "105.CDNS",
+          "name": "铿腾电子",
+          "weightPct": 0.2,
+          "returnPct": -1.2152,
+          "contributionPct": -0.0024
+        },
+        {
+          "secid": "106.BE",
+          "name": "Bloom Energy Corp-A",
+          "weightPct": 0.15,
+          "returnPct": -6.4283,
+          "contributionPct": -0.0096
+        },
+        {
+          "secid": "105.QCOM",
+          "name": "高通",
+          "weightPct": 0.15,
+          "returnPct": -3.1168,
+          "contributionPct": -0.0047
+        },
+        {
+          "secid": "106.LLY",
+          "name": "礼来",
+          "weightPct": 0.12,
+          "returnPct": 1.8603,
+          "contributionPct": 0.0022
+        },
+        {
+          "secid": "105.ALAB",
+          "name": "Astera Labs Inc",
+          "weightPct": 0.11,
+          "returnPct": -5.6724,
+          "contributionPct": -0.0062
+        },
+        {
+          "secid": "106.DG",
+          "name": "达乐",
+          "weightPct": 0.11,
+          "returnPct": 2.5781,
+          "contributionPct": 0.0028
+        },
+        {
+          "secid": "116.02259",
+          "name": "紫金黄金国际",
+          "weightPct": 0.11,
+          "returnPct": 6.5537,
+          "contributionPct": 0.0072
+        },
+        {
+          "secid": "106.SE",
+          "name": "Sea Ltd ADR",
+          "weightPct": 0.1,
+          "returnPct": 0.9479,
+          "contributionPct": 0.0009
+        },
+        {
+          "secid": "105.REGN",
+          "name": "再生元制药",
+          "weightPct": 0.1,
+          "returnPct": 4.7301,
+          "contributionPct": 0.0047
+        },
+        {
+          "secid": "116.02105",
+          "name": "来凯医药-B",
+          "weightPct": 0.1,
+          "returnPct": 8.7798,
+          "contributionPct": 0.0088
+        },
+        {
+          "secid": "105.AFRM",
+          "name": "Affirm Holdings Inc-A",
+          "weightPct": 0.09,
+          "returnPct": 0.8706,
+          "contributionPct": 0.0008
+        },
+        {
+          "secid": "116.01578",
+          "name": "天津银行",
+          "weightPct": 0.09,
+          "returnPct": 4.1026,
+          "contributionPct": 0.0037
+        },
+        {
+          "secid": "105.MELI",
+          "name": "MercadoLibre Inc",
+          "weightPct": 0.09,
+          "returnPct": 1.2151,
+          "contributionPct": 0.0011
+        },
+        {
+          "secid": "106.UNH",
+          "name": "联合健康",
+          "weightPct": 0.09,
+          "returnPct": -0.2767,
+          "contributionPct": -0.0002
+        },
+        {
+          "secid": "105.DUOL",
+          "name": "多邻国",
+          "weightPct": 0.09,
+          "returnPct": 3.7495,
+          "contributionPct": 0.0034
+        },
+        {
+          "secid": "105.WMT",
+          "name": "沃尔玛",
+          "weightPct": 0.08,
+          "returnPct": 2.7752,
+          "contributionPct": 0.0022
+        },
+        {
+          "secid": "105.RMBS",
+          "name": "Rambus Inc",
+          "weightPct": 0.08,
+          "returnPct": -8.8105,
+          "contributionPct": -0.007
+        },
+        {
+          "secid": "106.SPOT",
+          "name": "Spotify Technology SA",
+          "weightPct": 0.07,
+          "returnPct": 2.8551,
+          "contributionPct": 0.002
+        },
+        {
+          "secid": "106.HEI",
+          "name": "海科航空",
+          "weightPct": 0.07,
+          "returnPct": 0.6644,
+          "contributionPct": 0.0005
+        },
+        {
+          "secid": "106.TDG",
+          "name": "TransDigm Group Inc",
+          "weightPct": 0.06,
+          "returnPct": 3.0026,
+          "contributionPct": 0.0018
+        },
+        {
+          "secid": "106.RACE",
+          "name": "法拉利",
+          "weightPct": 0.06,
+          "returnPct": 2.7518,
+          "contributionPct": 0.0017
+        },
+        {
+          "secid": "0.300308",
+          "name": "中际旭创",
+          "weightPct": 0.05,
+          "returnPct": -6.5543,
+          "contributionPct": -0.0033
+        },
+        {
+          "secid": "106.HIMS",
+          "name": "Hims & Hers Health Inc-A",
+          "weightPct": 0.05,
+          "returnPct": -2.0495,
+          "contributionPct": -0.001
+        },
+        {
+          "secid": "105.GOOGL",
+          "name": "谷歌-A",
+          "weightPct": 0.03,
+          "returnPct": -0.3599,
+          "contributionPct": -0.0001
+        },
+        {
+          "secid": "106.GS",
+          "name": "高盛",
+          "weightPct": 0.02,
+          "returnPct": 0.1363,
+          "contributionPct": 0
+        },
+        {
+          "secid": "1.688256",
+          "name": "寒武纪",
+          "weightPct": 0.02,
+          "returnPct": -7.63,
+          "contributionPct": -0.0015
+        },
+        {
+          "secid": "0.002475",
+          "name": "立讯精密",
+          "weightPct": 0.02,
+          "returnPct": -8.0616,
+          "contributionPct": -0.0016
+        },
+        {
+          "secid": "106.CVS",
+          "name": "西维斯健康",
+          "weightPct": 0.02,
+          "returnPct": -0.0859,
+          "contributionPct": 0
+        },
+        {
+          "secid": "106.HWM",
+          "name": "Howmet Aerospace Inc",
+          "weightPct": 0.02,
+          "returnPct": 1.1219,
+          "contributionPct": 0.0002
+        },
+        {
+          "secid": "106.NVS",
+          "name": "诺华制药",
+          "weightPct": 0.02,
+          "returnPct": 3.7369,
+          "contributionPct": 0.0007
+        },
+        {
+          "secid": "106.MFC",
+          "name": "宏利金融",
+          "weightPct": 0.02,
+          "returnPct": 1.1297,
+          "contributionPct": 0.0002
+        },
+        {
+          "secid": "106.NEE",
+          "name": "新纪元能源",
+          "weightPct": 0.02,
+          "returnPct": 2.2809,
+          "contributionPct": 0.0005
+        },
+        {
+          "secid": "105.PLTR",
+          "name": "Palantir Technologies Inc-A",
+          "weightPct": 0.02,
+          "returnPct": 2.8394,
+          "contributionPct": 0.0006
+        },
+        {
+          "secid": "106.IBM",
+          "name": "IBM国际商业机器",
+          "weightPct": 0.02,
+          "returnPct": 1.1424,
+          "contributionPct": 0.0002
+        },
+        {
+          "secid": "1.601138",
+          "name": "工业富联",
+          "weightPct": 0.02,
+          "returnPct": -8.5429,
+          "contributionPct": -0.0017
+        },
+        {
+          "secid": "106.CTRA",
+          "name": "Coterra Energy Inc",
+          "weightPct": 0.02,
+          "returnPct": null,
+          "contributionPct": null
+        },
+        {
+          "secid": "105.BKNG",
+          "name": "Booking Holdings",
+          "weightPct": 0.02,
+          "returnPct": 1.0512,
+          "contributionPct": 0.0002
+        },
+        {
+          "secid": "106.V",
+          "name": "维萨",
+          "weightPct": 0.01,
+          "returnPct": 3.1474,
+          "contributionPct": 0.0003
+        },
+        {
+          "secid": "106.HD",
+          "name": "家得宝",
+          "weightPct": 0.01,
+          "returnPct": 2.0123,
+          "contributionPct": 0.0002
+        },
+        {
+          "secid": "105.MCHP",
+          "name": "微芯科技",
+          "weightPct": 0.01,
+          "returnPct": -4.5665,
+          "contributionPct": -0.0005
+        },
+        {
+          "secid": "0.002230",
+          "name": "科大讯飞",
+          "weightPct": 0.01,
+          "returnPct": 0.1219,
+          "contributionPct": 0
+        },
+        {
+          "secid": "105.LIN",
+          "name": "Linde plc",
+          "weightPct": 0.01,
+          "returnPct": 2.4534,
+          "contributionPct": 0.0002
+        },
+        {
+          "secid": "106.T",
+          "name": "美国电话电报",
+          "weightPct": 0.01,
+          "returnPct": 0.4883,
+          "contributionPct": 0
+        },
+        {
+          "secid": "0.002008",
+          "name": "大族激光",
+          "weightPct": 0.01,
+          "returnPct": -9.3999,
+          "contributionPct": -0.0009
+        },
+        {
+          "secid": "0.002415",
+          "name": "海康威视",
+          "weightPct": 0.01,
+          "returnPct": -1.2342,
+          "contributionPct": -0.0001
+        },
+        {
+          "secid": "105.INTU",
+          "name": "财捷",
+          "weightPct": 0.01,
+          "returnPct": 3.0965,
+          "contributionPct": 0.0003
+        },
+        {
+          "secid": "0.002236",
+          "name": "大华股份",
+          "weightPct": 0.01,
+          "returnPct": -0.4222,
+          "contributionPct": 0
+        },
+        {
+          "secid": "106.ACN",
+          "name": "埃森哲",
+          "weightPct": 0.01,
+          "returnPct": 4.7434,
+          "contributionPct": 0.0005
+        },
+        {
+          "secid": "0.300124",
+          "name": "汇川技术",
+          "weightPct": 0.01,
+          "returnPct": 0.2933,
+          "contributionPct": 0
+        },
+        {
+          "secid": "0.002916",
+          "name": "深南电路",
+          "weightPct": 0.01,
+          "returnPct": -5.5622,
+          "contributionPct": -0.0006
+        },
+        {
+          "secid": "1.688008",
+          "name": "澜起科技",
+          "weightPct": 0.01,
+          "returnPct": -14.7963,
+          "contributionPct": -0.0015
+        },
+        {
+          "secid": "0.002384",
+          "name": "东山精密",
+          "weightPct": 0.01,
+          "returnPct": -9.9996,
+          "contributionPct": -0.001
+        },
+        {
+          "secid": "0.300750",
+          "name": "宁德时代",
+          "weightPct": 0.01,
+          "returnPct": -0.3882,
+          "contributionPct": 0
+        },
+        {
+          "secid": "1.600183",
+          "name": "生益科技",
+          "weightPct": 0.01,
+          "returnPct": -7.7973,
+          "contributionPct": -0.0008
+        },
+        {
+          "secid": "1.688041",
+          "name": "海光信息",
+          "weightPct": 0.01,
+          "returnPct": -7.8908,
+          "contributionPct": -0.0008
+        },
+        {
+          "secid": "0.002463",
+          "name": "沪电股份",
+          "weightPct": 0.01,
+          "returnPct": -9.9993,
+          "contributionPct": -0.001
+        },
+        {
+          "secid": "0.002281",
+          "name": "光迅科技",
+          "weightPct": 0.01,
+          "returnPct": -9.9988,
+          "contributionPct": -0.001
+        },
+        {
+          "secid": "1.688981",
+          "name": "中芯国际",
+          "weightPct": 0.01,
+          "returnPct": -6.7193,
+          "contributionPct": -0.0007
+        },
+        {
+          "secid": "0.000725",
+          "name": "京东方A",
+          "weightPct": 0.01,
+          "returnPct": 3.7628,
+          "contributionPct": 0.0004
+        },
+        {
+          "secid": "1.601318",
+          "name": "中国平安",
+          "weightPct": 0.01,
+          "returnPct": -1.2316,
+          "contributionPct": -0.0001
+        },
+        {
+          "secid": "0.002371",
+          "name": "北方华创",
+          "weightPct": 0.01,
+          "returnPct": -10.0004,
+          "contributionPct": -0.001
+        },
+        {
+          "secid": "1.603486",
+          "name": "科沃斯",
+          "weightPct": 0.01,
+          "returnPct": -0.7551,
+          "contributionPct": -0.0001
+        },
+        {
+          "secid": "0.000100",
+          "name": "TCL科技",
+          "weightPct": 0.01,
+          "returnPct": -3.268,
+          "contributionPct": -0.0003
+        },
+        {
+          "secid": "1.601899",
+          "name": "紫金矿业",
+          "weightPct": 0.01,
+          "returnPct": 4.7391,
+          "contributionPct": 0.0005
+        },
+        {
+          "secid": "1.688002",
+          "name": "睿创微纳",
+          "weightPct": 0.01,
+          "returnPct": 1.9933,
+          "contributionPct": 0.0002
+        },
+        {
+          "secid": "0.300033",
+          "name": "同花顺",
+          "weightPct": 0.01,
+          "returnPct": -4.0116,
+          "contributionPct": -0.0004
+        },
+        {
+          "secid": "0.300373",
+          "name": "扬杰科技",
+          "weightPct": 0.01,
+          "returnPct": -10.7961,
+          "contributionPct": -0.0011
+        },
+        {
+          "secid": "0.002993",
+          "name": "奥海科技",
+          "weightPct": 0.01,
+          "returnPct": -4.6668,
+          "contributionPct": -0.0005
+        },
+        {
+          "secid": "0.300219",
+          "name": "鸿利智汇",
+          "weightPct": 0.01,
+          "returnPct": -6.4483,
+          "contributionPct": -0.0006
+        },
+        {
+          "secid": "0.002436",
+          "name": "兴森科技",
+          "weightPct": 0.01,
+          "returnPct": -4.3597,
+          "contributionPct": -0.0004
+        },
+        {
+          "secid": "0.300739",
+          "name": "明阳电路",
+          "weightPct": 0.01,
+          "returnPct": -8.8056,
+          "contributionPct": -0.0009
+        },
+        {
+          "secid": "0.002815",
+          "name": "崇达技术",
+          "weightPct": 0.01,
+          "returnPct": -5.397,
+          "contributionPct": -0.0005
+        },
+        {
+          "secid": "0.002559",
+          "name": "亚威股份",
+          "weightPct": 0.01,
+          "returnPct": 10.0143,
+          "contributionPct": 0.001
+        },
+        {
+          "secid": "1.688111",
+          "name": "金山办公",
+          "weightPct": 0.01,
+          "returnPct": -2.2292,
+          "contributionPct": -0.0002
+        },
+        {
+          "secid": "0.300790",
+          "name": "宇瞳光学",
+          "weightPct": 0.01,
+          "returnPct": -3.4343,
+          "contributionPct": -0.0003
+        },
+        {
+          "secid": "0.002558",
+          "name": "巨人网络",
+          "weightPct": 0.01,
+          "returnPct": -1.423,
+          "contributionPct": -0.0001
+        },
+        {
+          "secid": "0.002049",
+          "name": "紫光国微",
+          "weightPct": 0.01,
+          "returnPct": -3.3098,
+          "contributionPct": -0.0003
+        },
+        {
+          "secid": "0.300454",
+          "name": "深信服",
+          "weightPct": 0.01,
+          "returnPct": -3.1725,
+          "contributionPct": -0.0003
+        },
+        {
+          "secid": "1.600686",
+          "name": "金龙汽车",
+          "weightPct": 0.01,
+          "returnPct": -1.1532,
+          "contributionPct": -0.0001
+        },
+        {
+          "secid": "0.002414",
+          "name": "高德红外",
+          "weightPct": 0.01,
+          "returnPct": -2.8727,
+          "contributionPct": -0.0003
+        },
+        {
+          "secid": "1.600030",
+          "name": "中信证券",
+          "weightPct": 0.01,
+          "returnPct": -2.8843,
+          "contributionPct": -0.0003
+        },
+        {
+          "secid": "0.300602",
+          "name": "飞荣达",
+          "weightPct": 0.01,
+          "returnPct": -3.5211,
+          "contributionPct": -0.0004
+        },
+        {
+          "secid": "1.603501",
+          "name": "豪威集团",
+          "weightPct": 0.01,
+          "returnPct": 4.2838,
+          "contributionPct": 0.0004
+        },
+        {
+          "secid": "0.300458",
+          "name": "全志科技",
+          "weightPct": 0.01,
+          "returnPct": -3.5279,
+          "contributionPct": -0.0004
+        },
+        {
+          "secid": "0.000733",
+          "name": "振华科技",
+          "weightPct": 0.01,
+          "returnPct": -8.3146,
+          "contributionPct": -0.0008
+        },
+        {
+          "secid": "0.000338",
+          "name": "潍柴动力",
+          "weightPct": 0.01,
+          "returnPct": -5.036,
+          "contributionPct": -0.0005
+        },
+        {
+          "secid": "1.600031",
+          "name": "三一重工",
+          "weightPct": 0.01,
+          "returnPct": 1.9507,
+          "contributionPct": 0.0002
+        },
+        {
+          "secid": "0.300409",
+          "name": "道氏技术",
+          "weightPct": 0.01,
+          "returnPct": -3.3809,
+          "contributionPct": -0.0003
+        },
+        {
+          "secid": "0.301031",
+          "name": "中熔电气",
+          "weightPct": 0.01,
+          "returnPct": -1.5776,
+          "contributionPct": -0.0002
+        },
+        {
+          "secid": "1.603685",
+          "name": "晨丰科技",
+          "weightPct": 0.01,
+          "returnPct": 0.4346,
+          "contributionPct": 0
+        },
+        {
+          "secid": "1.603296",
+          "name": "华勤技术",
+          "weightPct": 0.01,
+          "returnPct": -4.678,
+          "contributionPct": -0.0005
+        },
+        {
+          "secid": "0.300207",
+          "name": "欣旺达",
+          "weightPct": 0.01,
+          "returnPct": -3.04,
+          "contributionPct": -0.0003
+        },
+        {
+          "secid": "116.00316",
+          "name": "东方海外国际",
+          "weightPct": 0.01,
+          "returnPct": null,
+          "contributionPct": null
+        },
+        {
+          "secid": "0.300433",
+          "name": "蓝思科技",
+          "weightPct": 0.01,
+          "returnPct": -5.1104,
+          "contributionPct": -0.0005
+        },
+        {
+          "secid": "106.XOM",
+          "name": "埃克森美孚",
+          "weightPct": 0.01,
+          "returnPct": 0.5944,
+          "contributionPct": 0.0001
+        },
+        {
+          "secid": "0.300226",
+          "name": "上海钢联",
+          "weightPct": 0.01,
+          "returnPct": -1.1845,
+          "contributionPct": -0.0001
+        },
+        {
+          "secid": "0.002222",
+          "name": "福晶科技",
+          "weightPct": 0.01,
+          "returnPct": -2.3397,
+          "contributionPct": -0.0002
+        },
+        {
+          "secid": "0.002668",
+          "name": "TCL智家",
+          "weightPct": 0.01,
+          "returnPct": 1.0999,
+          "contributionPct": 0.0001
+        },
+        {
+          "secid": "0.301358",
+          "name": "湖南裕能",
+          "weightPct": 0.01,
+          "returnPct": -1.8099,
+          "contributionPct": -0.0002
+        },
+        {
+          "secid": "0.300759",
+          "name": "康龙化成",
+          "weightPct": 0.01,
+          "returnPct": -2.8695,
+          "contributionPct": -0.0003
+        },
+        {
+          "secid": "1.601288",
+          "name": "农业银行",
+          "weightPct": 0.01,
+          "returnPct": -1.157,
+          "contributionPct": -0.0001
+        },
+        {
+          "secid": "1.603259",
+          "name": "药明康德",
+          "weightPct": 0.01,
+          "returnPct": -3.115,
+          "contributionPct": -0.0003
+        },
+        {
+          "secid": "0.300438",
+          "name": "鹏辉能源",
+          "weightPct": 0.01,
+          "returnPct": -1.1805,
+          "contributionPct": -0.0001
+        },
+        {
+          "secid": "0.300408",
+          "name": "三环集团",
+          "weightPct": 0.01,
+          "returnPct": -13.0588,
+          "contributionPct": -0.0013
+        },
+        {
+          "secid": "1.688772",
+          "name": "珠海冠宇",
+          "weightPct": 0.01,
+          "returnPct": -3.4268,
+          "contributionPct": -0.0003
+        },
+        {
+          "secid": "1.600104",
+          "name": "上汽集团",
+          "weightPct": 0.01,
+          "returnPct": 1.0225,
+          "contributionPct": 0.0001
+        },
+        {
+          "secid": "106.YUM",
+          "name": "Yum! Brands Inc",
+          "weightPct": 0.01,
+          "returnPct": 1.9432,
+          "contributionPct": 0.0002
+        }
+      ]
+    },
+    {
+      "code": "501226",
+      "name": "长城全球新能源车",
+      "mode": "algorithm1",
+      "source": "eastmoney-jjcc-year-2025-month-12",
+      "dataFetchedAt": "2026-07-03T10:55:00+08:00",
+      "reportDate": "2025-12-31",
+      "assetAllocation": {
+        "reportDate": "2026-03-31",
+        "stockPct": 78.95,
+        "bondPct": 0,
+        "cashPct": 13.38,
+        "depositaryReceiptPct": 8.83,
+        "otherPct": 0,
+        "equityLikePct": 87.78
+      },
+      "latestEstimate": {
+        "tradeDate": "2026-07-02",
+        "beijingTime": "2026-07-03 04:00",
+        "holdingCount": 27,
+        "holdingWeightPct": 85.86,
+        "stockStyleReturnPct": -3.7281,
+        "fxPct": -0.1,
+        "rawEstimatePct": -3.3726,
+        "tunedEstimatePct": -3.3726,
+        "missing": [
+          "106.BRK_B"
+        ]
+      },
+      "holdings": [
+        {
+          "secid": "106.TSM",
+          "name": "台积电",
+          "weightPct": 8.61,
+          "returnPct": -2.2668,
+          "contributionPct": -0.1952
+        },
+        {
+          "secid": "105.NVDA",
+          "name": "英伟达",
+          "weightPct": 7.7,
+          "returnPct": -1.3918,
+          "contributionPct": -0.1072
+        },
+        {
+          "secid": "105.AVGO",
+          "name": "博通",
+          "weightPct": 7.15,
+          "returnPct": -2.407,
+          "contributionPct": -0.1721
+        },
+        {
+          "secid": "105.GOOGL",
+          "name": "谷歌-A",
+          "weightPct": 6.46,
+          "returnPct": -0.3599,
+          "contributionPct": -0.0232
+        },
+        {
+          "secid": "105.AMZN",
+          "name": "亚马逊",
+          "weightPct": 6.13,
+          "returnPct": 0.4013,
+          "contributionPct": 0.0246
+        },
+        {
+          "secid": "105.META",
+          "name": "Meta Platforms Inc-A",
+          "weightPct": 5.84,
+          "returnPct": -4.8963,
+          "contributionPct": -0.2859
+        },
+        {
+          "secid": "105.MU",
+          "name": "美光科技",
+          "weightPct": 5.05,
+          "returnPct": -5.4946,
+          "contributionPct": -0.2775
+        },
+        {
+          "secid": "105.ASML",
+          "name": "阿斯麦",
+          "weightPct": 4.42,
+          "returnPct": -3.9999,
+          "contributionPct": -0.1768
+        },
+        {
+          "secid": "105.KLAC",
+          "name": "科磊",
+          "weightPct": 4.3,
+          "returnPct": -11.5106,
+          "contributionPct": -0.495
+        },
+        {
+          "secid": "105.TSLA",
+          "name": "特斯拉",
+          "weightPct": 3.98,
+          "returnPct": -7.4888,
+          "contributionPct": -0.2981
+        },
+        {
+          "secid": "105.LRCX",
+          "name": "拉姆研究",
+          "weightPct": 3.84,
+          "returnPct": -10.185,
+          "contributionPct": -0.3911
+        },
+        {
+          "secid": "105.QCOM",
+          "name": "高通",
+          "weightPct": 3.03,
+          "returnPct": -3.1168,
+          "contributionPct": -0.0944
+        },
+        {
+          "secid": "1.600418",
+          "name": "江淮汽车",
+          "weightPct": 2.49,
+          "returnPct": -1.9898,
+          "contributionPct": -0.0495
+        },
+        {
+          "secid": "0.300750",
+          "name": "宁德时代",
+          "weightPct": 2.47,
+          "returnPct": -0.3882,
+          "contributionPct": -0.0096
+        },
+        {
+          "secid": "106.ONTO",
+          "name": "Onto Innovation Inc",
+          "weightPct": 2.24,
+          "returnPct": -12.4602,
+          "contributionPct": -0.2791
+        },
+        {
+          "secid": "106.CAT",
+          "name": "卡特彼勒",
+          "weightPct": 2.2,
+          "returnPct": -2.8122,
+          "contributionPct": -0.0619
+        },
+        {
+          "secid": "105.CSCO",
+          "name": "思科",
+          "weightPct": 2.04,
+          "returnPct": -3.692,
+          "contributionPct": -0.0753
+        },
+        {
+          "secid": "1.603799",
+          "name": "华友钴业",
+          "weightPct": 1.72,
+          "returnPct": -1.9792,
+          "contributionPct": -0.034
+        },
+        {
+          "secid": "105.AMD",
+          "name": "超威半导体",
+          "weightPct": 1.26,
+          "returnPct": -4.2634,
+          "contributionPct": -0.0537
+        },
+        {
+          "secid": "0.002460",
+          "name": "赣锋锂业",
+          "weightPct": 1.06,
+          "returnPct": -2.9278,
+          "contributionPct": -0.031
+        },
+        {
+          "secid": "106.ALB",
+          "name": "美国雅保",
+          "weightPct": 1,
+          "returnPct": -0.3821,
+          "contributionPct": -0.0038
+        },
+        {
+          "secid": "1.601100",
+          "name": "恒立液压",
+          "weightPct": 0.92,
+          "returnPct": 4.5962,
+          "contributionPct": 0.0423
+        },
+        {
+          "secid": "0.300373",
+          "name": "扬杰科技",
+          "weightPct": 0.86,
+          "returnPct": -10.7961,
+          "contributionPct": -0.0928
+        },
+        {
+          "secid": "0.301308",
+          "name": "江波龙",
+          "weightPct": 0.62,
+          "returnPct": -10.2749,
+          "contributionPct": -0.0637
+        },
+        {
+          "secid": "105.AAPL",
+          "name": "苹果",
+          "weightPct": 0.24,
+          "returnPct": 4.8407,
+          "contributionPct": 0.0116
+        },
+        {
+          "secid": "0.002466",
+          "name": "天齐锂业",
+          "weightPct": 0.23,
+          "returnPct": -3.6603,
+          "contributionPct": -0.0084
+        },
+        {
+          "secid": "106.BRK_B",
+          "name": "伯克希尔哈撒韦-B",
+          "weightPct": 0.15,
+          "returnPct": null,
+          "contributionPct": null
+        }
+      ]
+    },
+    {
+      "code": "017436",
+      "name": "华宝纳斯达克精选",
+      "mode": "algorithm1",
+      "source": "eastmoney-jjcc-year-2025-month-12",
+      "dataFetchedAt": "2026-07-03T10:55:00+08:00",
+      "reportDate": "2025-12-31",
+      "assetAllocation": {
+        "reportDate": "2026-03-31",
+        "stockPct": 91.97,
+        "bondPct": 0,
+        "cashPct": 8.53,
+        "depositaryReceiptPct": 0.25,
+        "otherPct": 0,
+        "equityLikePct": 92.22
+      },
+      "latestEstimate": {
+        "tradeDate": "2026-07-02",
+        "beijingTime": "2026-07-03 04:00",
+        "holdingCount": 40,
+        "holdingWeightPct": 89.19,
+        "stockStyleReturnPct": -0.9163,
+        "fxPct": -0.1,
+        "rawEstimatePct": -0.945,
+        "tunedEstimatePct": -0.945,
+        "missing": []
+      },
+      "holdings": [
+        {
+          "secid": "105.NVDA",
+          "name": "英伟达",
+          "weightPct": 9.83,
+          "returnPct": -1.3918,
+          "contributionPct": -0.1368
+        },
+        {
+          "secid": "105.AAPL",
+          "name": "苹果",
+          "weightPct": 9.14,
+          "returnPct": 4.8407,
+          "contributionPct": 0.4424
+        },
+        {
+          "secid": "105.GOOG",
+          "name": "谷歌-C",
+          "weightPct": 8.19,
+          "returnPct": -0.4778,
+          "contributionPct": -0.0391
+        },
+        {
+          "secid": "105.TSLA",
+          "name": "特斯拉",
+          "weightPct": 8.09,
+          "returnPct": -7.4888,
+          "contributionPct": -0.6058
+        },
+        {
+          "secid": "105.MSFT",
+          "name": "微软",
+          "weightPct": 7.92,
+          "returnPct": 1.616,
+          "contributionPct": 0.128
+        },
+        {
+          "secid": "105.AVGO",
+          "name": "博通",
+          "weightPct": 7.54,
+          "returnPct": -2.407,
+          "contributionPct": -0.1815
+        },
+        {
+          "secid": "105.AMZN",
+          "name": "亚马逊",
+          "weightPct": 6.01,
+          "returnPct": 0.4013,
+          "contributionPct": 0.0241
+        },
+        {
+          "secid": "105.NFLX",
+          "name": "奈飞",
+          "weightPct": 5.65,
+          "returnPct": 4.6637,
+          "contributionPct": 0.2635
+        },
+        {
+          "secid": "105.META",
+          "name": "Meta Platforms Inc-A",
+          "weightPct": 5.6,
+          "returnPct": -4.8963,
+          "contributionPct": -0.2742
+        },
+        {
+          "secid": "105.MRVL",
+          "name": "迈威尔科技",
+          "weightPct": 4.79,
+          "returnPct": -9.8364,
+          "contributionPct": -0.4712
+        },
+        {
+          "secid": "105.ROKU",
+          "name": "Roku Inc-A",
+          "weightPct": 4.29,
+          "returnPct": 1.3664,
+          "contributionPct": 0.0586
+        },
+        {
+          "secid": "105.SMCI",
+          "name": "超微电脑",
+          "weightPct": 3.19,
+          "returnPct": -1.5552,
+          "contributionPct": -0.0496
+        },
+        {
+          "secid": "106.CVNA",
+          "name": "Carvana Co-A",
+          "weightPct": 2.49,
+          "returnPct": 1.0756,
+          "contributionPct": 0.0268
+        },
+        {
+          "secid": "105.RIVN",
+          "name": "Rivian Automotive Inc-A",
+          "weightPct": 1.83,
+          "returnPct": 8.44,
+          "contributionPct": 0.1545
+        },
+        {
+          "secid": "105.RKLB",
+          "name": "Rocket Lab Corp",
+          "weightPct": 0.5,
+          "returnPct": 0.3897,
+          "contributionPct": 0.0019
+        },
+        {
+          "secid": "105.LITE",
+          "name": "Lumentum Holdings Inc",
+          "weightPct": 0.45,
+          "returnPct": -9.0918,
+          "contributionPct": -0.0409
+        },
+        {
+          "secid": "106.COHR",
+          "name": "Coherent Corp",
+          "weightPct": 0.45,
+          "returnPct": -9.5728,
+          "contributionPct": -0.0431
+        },
+        {
+          "secid": "106.YALA",
+          "name": "雅乐科技",
+          "weightPct": 0.44,
+          "returnPct": -2.1429,
+          "contributionPct": -0.0094
+        },
+        {
+          "secid": "106.U",
+          "name": "Unity Software Inc",
+          "weightPct": 0.39,
+          "returnPct": -2.8818,
+          "contributionPct": -0.0112
+        },
+        {
+          "secid": "105.MGNI",
+          "name": "Magnite Inc",
+          "weightPct": 0.33,
+          "returnPct": 0.4931,
+          "contributionPct": 0.0016
+        },
+        {
+          "secid": "105.COST",
+          "name": "开市客",
+          "weightPct": 0.24,
+          "returnPct": 2.92,
+          "contributionPct": 0.007
+        },
+        {
+          "secid": "105.FTAI",
+          "name": "FTAI Aviation Ltd-A",
+          "weightPct": 0.23,
+          "returnPct": -5.2591,
+          "contributionPct": -0.0121
+        },
+        {
+          "secid": "105.BZUN",
+          "name": "宝尊电商",
+          "weightPct": 0.23,
+          "returnPct": -4.1379,
+          "contributionPct": -0.0095
+        },
+        {
+          "secid": "105.CRWV",
+          "name": "CoreWeave Inc-A",
+          "weightPct": 0.22,
+          "returnPct": -4.5982,
+          "contributionPct": -0.0101
+        },
+        {
+          "secid": "105.TTD",
+          "name": "The Trade Desk Inc-A",
+          "weightPct": 0.21,
+          "returnPct": -0.2611,
+          "contributionPct": -0.0005
+        },
+        {
+          "secid": "105.CRDO",
+          "name": "Credo Technology Group Holding Ltd",
+          "weightPct": 0.19,
+          "returnPct": -6.6309,
+          "contributionPct": -0.0126
+        },
+        {
+          "secid": "106.PINS",
+          "name": "Pinterest Inc-A",
+          "weightPct": 0.17,
+          "returnPct": 0.8223,
+          "contributionPct": 0.0014
+        },
+        {
+          "secid": "105.AMD",
+          "name": "超威半导体",
+          "weightPct": 0.15,
+          "returnPct": -4.2634,
+          "contributionPct": -0.0064
+        },
+        {
+          "secid": "105.APP",
+          "name": "Applovin Corp-A",
+          "weightPct": 0.1,
+          "returnPct": -6.6506,
+          "contributionPct": -0.0067
+        },
+        {
+          "secid": "105.FWONK",
+          "name": "Liberty Media Corp Liberty Formula One-C",
+          "weightPct": 0.1,
+          "returnPct": 0.122,
+          "contributionPct": 0.0001
+        },
+        {
+          "secid": "105.WRD",
+          "name": "文远知行",
+          "weightPct": 0.06,
+          "returnPct": -3.3275,
+          "contributionPct": -0.002
+        },
+        {
+          "secid": "106.ZH",
+          "name": "知乎",
+          "weightPct": 0.04,
+          "returnPct": 1.2862,
+          "contributionPct": 0.0005
+        },
+        {
+          "secid": "106.TSM",
+          "name": "台积电",
+          "weightPct": 0.04,
+          "returnPct": -2.2668,
+          "contributionPct": -0.0009
+        },
+        {
+          "secid": "105.ARM",
+          "name": "Arm Holdings plc ADR",
+          "weightPct": 0.02,
+          "returnPct": -6.5754,
+          "contributionPct": -0.0013
+        },
+        {
+          "secid": "105.QCOM",
+          "name": "高通",
+          "weightPct": 0.02,
+          "returnPct": -3.1168,
+          "contributionPct": -0.0006
+        },
+        {
+          "secid": "105.MU",
+          "name": "美光科技",
+          "weightPct": 0.01,
+          "returnPct": -5.4946,
+          "contributionPct": -0.0005
+        },
+        {
+          "secid": "105.INTU",
+          "name": "财捷",
+          "weightPct": 0.01,
+          "returnPct": 3.0965,
+          "contributionPct": 0.0003
+        },
+        {
+          "secid": "105.ON",
+          "name": "安森美半导体",
+          "weightPct": 0.01,
+          "returnPct": -3.6035,
+          "contributionPct": -0.0004
+        },
+        {
+          "secid": "105.KLAC",
+          "name": "科磊",
+          "weightPct": 0.01,
+          "returnPct": -11.5106,
+          "contributionPct": -0.0012
+        },
+        {
+          "secid": "105.CSCO",
+          "name": "思科",
+          "weightPct": 0.01,
+          "returnPct": -3.692,
+          "contributionPct": -0.0004
+        }
+      ]
+    }
+  ]
+}

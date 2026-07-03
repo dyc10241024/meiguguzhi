@@ -1,0 +1,82 @@
+{
+  "name": "meiguguzhi",
+  "displayName": "\u7f8e\u80a1 QDII \u4f30\u503c\u52a9\u624b",
+  "description": "\u4e2a\u4eba\u81ea\u7528\u7684\u7f8e\u80a1 QDII \u573a\u5916\u57fa\u91d1\u4f30\u503c\u4e0e\u56de\u6d4b\u5de5\u5177",
+  "version": "0.0.1",
+  "publisher": "local",
+  "private": true,
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "meiguguzhi.open",
+        "title": "\u7f8e\u80a1\u4f30\u503c: \u6253\u5f00"
+      },
+      {
+        "command": "meiguguzhi.refresh",
+        "title": "\u7f8e\u80a1\u4f30\u503c: \u5237\u65b0"
+      },
+      {
+        "command": "meiguguzhi.backtest",
+        "title": "\u7f8e\u80a1\u4f30\u503c: \u56de\u6d4b"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "meiguguzhi",
+          "title": "\u7f8e\u80a1\u4f30\u503c",
+          "icon": "media/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "meiguguzhi": [
+        {
+          "id": "meiguguzhi.view",
+          "name": "QDII \u4f30\u503c",
+          "type": "webview"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "\u7f8e\u80a1 QDII \u4f30\u503c\u52a9\u624b",
+      "properties": {
+        "meiguguzhi.backtestDays": {
+          "type": "number",
+          "default": 20,
+          "description": "\u9ed8\u8ba4\u56de\u6d4b\u51c0\u503c\u65e5\u6570\u91cf"
+        },
+        "meiguguzhi.funds": {
+          "type": "array",
+          "default": [
+            "270023",
+            "501226",
+            "017436"
+          ],
+          "description": "\u9ed8\u8ba4\u5173\u6ce8\u57fa\u91d1\u4ee3\u7801"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "backtest": "npm run compile && node out/scripts/backtest.js",
+    "check": "npm run compile && npm run backtest"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "@types/vscode": "^1.90.0",
+    "typescript": "^5.8.2"
+  }
+}
