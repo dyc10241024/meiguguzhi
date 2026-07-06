@@ -24,6 +24,11 @@ body {
   align-items: center;
   gap: 10px;
 }
+.top-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 h1,
 h2,
 p {
@@ -40,6 +45,18 @@ h1 {
   color: var(--vscode-button-foreground);
   background: var(--vscode-button-background);
   cursor: pointer;
+}
+.text-button {
+  height: 34px;
+  padding: 0 10px;
+  border: 1px solid var(--vscode-panel-border);
+  border-radius: 7px;
+  color: var(--vscode-foreground);
+  background: var(--vscode-editor-background);
+  cursor: pointer;
+}
+.text-button:hover {
+  border-color: var(--vscode-focusBorder);
 }
 .market-bar {
   display: grid;
@@ -152,6 +169,10 @@ h1 {
   color: var(--vscode-foreground);
   background: var(--vscode-button-secondaryBackground);
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
 }
 .small-button:hover {
   border-color: var(--vscode-focusBorder);
@@ -207,6 +228,27 @@ h1 {
 .modal-body {
   padding: 14px 16px;
   overflow: auto;
+}
+.debug-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.json-output {
+  min-height: 260px;
+  margin: 0;
+  padding: 12px;
+  overflow: auto;
+  border: 1px solid var(--vscode-panel-border);
+  border-radius: 8px;
+  color: var(--vscode-editor-foreground);
+  background: var(--vscode-editor-background);
+  font-family: var(--vscode-editor-font-family);
+  font-size: 12px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 .summary-grid {
   display: grid;

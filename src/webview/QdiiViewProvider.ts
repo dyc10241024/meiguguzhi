@@ -1,8 +1,39 @@
 import * as fs from "fs";
+import * as https from "https";
 import * as path from "path";
 import * as vscode from "vscode";
 
 type AnyFund = Record<string, any>;
+type WebviewMessage = {
+  type: string;
+  key?: string;
+};
+
+const DEBUG_APIS: Record<
+  string,
+  { title: string; url: string; referer: string }
+> = {
+  market: {
+    title: "顶部指标行情 push2",
+    url: "https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&invt=2&fields=f2,f3,f12,f13,f14&secids=100.NDX,100.NDX100,100.SPX,133.USDCNH",
+    referer: "https://quote.eastmoney.com/",
+  },
+  quotes: {
+    title: "重仓股票行情 push2",
+    url: "https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&invt=2&fields=f2,f3,f12,f13,f14&secids=105.ASML,116.02513,105.GOOG,105.NVDA,105.AAPL,105.TSM",
+    referer: "https://quote.eastmoney.com/",
+  },
+  fundTop10: {
+    title: "270023 最新十大持仓 fundf10",
+    url: "https://fundf10.eastmoney.com/FundArchivesDatas.aspx?type=jjcc&code=270023&topline=10&year=&month=",
+    referer: "https://fundf10.eastmoney.com/ccmx_270023.html",
+  },
+  fundFull: {
+    title: "270023 2025-12 全量持仓 fundf10",
+    url: "https://fundf10.eastmoney.com/FundArchivesDatas.aspx?type=jjcc&code=270023&topline=1000&year=2025&month=12",
+    referer: "https://fundf10.eastmoney.com/ccmx_270023.html",
+  },
+};
 
 export class QdiiViewProvider implements vscode.WebviewViewProvider {
   public static readonly viewType = "meiguguzhi.view";
@@ -22,20 +53,24 @@ export class QdiiViewProvider implements vscode.WebviewViewProvider {
 
     webview.options = {
       enableScripts: true,
+      enableCommandUris: true,
       localResourceRoots: [
         vscode.Uri.joinPath(this.context.extensionUri, "media"),
       ],
     };
 
-    webview.html = this.getHtml(webview);
-    this.output.appendLine("webview html assigned");
-
-    webview.onDidReceiveMessage((message: { type: string }) => {
+    webview.onDidReceiveMessage((message: WebviewMessage) => {
       this.output.appendLine("webview message: " + message.type);
       if (message.type === "ready" || message.type === "refresh") {
         void this.refresh();
       }
+      if (message.type === "debugApi") {
+        void this.runDebugApi(message.key);
+      }
     });
+
+    webview.html = this.getHtml(webview);
+    this.output.appendLine("webview html assigned");
 
     this.output.appendLine("calling immediate refresh");
     void this.refresh();
@@ -76,13 +111,92 @@ export class QdiiViewProvider implements vscode.WebviewViewProvider {
       });
     }
   }
+
+  public async runDebugApi(key?: string): Promise<void> {
+    if (!this.view) {
+      this.output.appendLine("debug api: no view");
+      return;
+    }
+
+    const api = key ? DEBUG_APIS[key] : undefined;
+    if (!key || !api) {
+      await this.view.webview.postMessage({
+        type: "debugResult",
+        payload: {
+          ok: false,
+          key,
+          error: "unknown debug api",
+        },
+      });
+      return;
+    }
+
+    this.output.appendLine("debug api start: " + key);
+    await this.view.webview.postMessage({
+      type: "debugResult",
+      payload: {
+        ok: null,
+        key,
+        title: api.title,
+        url: api.url,
+        requestedAt: new Date().toISOString(),
+        status: "request accepted by extension host",
+      },
+    });
+
+    try {
+      const startedAt = Date.now();
+      const response = await httpsGetText(api.url, api.referer);
+      const json = tryParseJson(response.body);
+      const holdingRowCount = (response.body.match(/<tr><td>\d+<\/td>/g) ?? [])
+        .length;
+
+      await this.view.webview.postMessage({
+        type: "debugResult",
+        payload: {
+          ok: true,
+          key,
+          title: api.title,
+          url: api.url,
+          requestedAt: new Date().toISOString(),
+          elapsedMs: Date.now() - startedAt,
+          statusCode: response.statusCode,
+          contentType: response.contentType,
+          holdingRowCount,
+          json,
+          bodyPreview: json ? undefined : response.body.slice(0, 5000),
+        },
+      });
+      this.output.appendLine(
+        "debug api done: " + key + " " + response.statusCode,
+      );
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      this.output.appendLine("debug api error: " + key + " " + message);
+      await this.view.webview.postMessage({
+        type: "debugResult",
+        payload: {
+          ok: false,
+          key,
+          title: api.title,
+          url: api.url,
+          requestedAt: new Date().toISOString(),
+          error: message,
+        },
+      });
+    }
+  }
+
   private getHtml(webview: vscode.Webview): string {
-    const styleUri = webview.asWebviewUri(
-      vscode.Uri.joinPath(this.context.extensionUri, "media", "main.css"),
-    );
-    const scriptUri = webview.asWebviewUri(
-      vscode.Uri.joinPath(this.context.extensionUri, "media", "main.js"),
-    );
+    const cacheBust = "?v=" + Date.now();
+    const styleUri =
+      webview.asWebviewUri(
+        vscode.Uri.joinPath(this.context.extensionUri, "media", "main.css"),
+      ) + cacheBust;
+    const scriptUri =
+      webview.asWebviewUri(
+        vscode.Uri.joinPath(this.context.extensionUri, "media", "main.js"),
+      ) + cacheBust;
     const nonce = this.getNonce();
 
     return `<!DOCTYPE html>
@@ -99,9 +213,12 @@ export class QdiiViewProvider implements vscode.WebviewViewProvider {
     <header class="topbar">
       <div>
         <h1>QDII &#20272;&#20540;</h1>
-        <p id="subtitle">&#27491;&#22312;&#35835;&#21462;&#32447;&#19978;&#25968;&#25454;</p>
+        <p id="subtitle">&#27491;&#22312;&#35835;&#21462;&#26412;&#22320; mock &#25968;&#25454;</p>
       </div>
-      <button id="refreshButton" class="icon-button" title="&#21047;&#26032;" aria-label="&#21047;&#26032;">R</button>
+      <div class="top-actions">
+        <button id="debugButton" class="text-button" title="&#25509;&#21475;&#35843;&#35797;" aria-label="&#25509;&#21475;&#35843;&#35797;">&#35843;&#35797;</button>
+        <button id="refreshButton" class="icon-button" title="&#21047;&#26032;" aria-label="&#21047;&#26032;">R</button>
+      </div>
     </header>
 
     <section id="marketBar" class="market-bar" aria-label="market indicators"></section>
@@ -142,5 +259,70 @@ export class QdiiViewProvider implements vscode.WebviewViewProvider {
       text += possible.charAt(Math.floor(Math.random() * possible.length));
     }
     return text;
+  }
+}
+
+function httpsGetText(
+  url: string,
+  referer: string,
+): Promise<{ body: string; statusCode: number; contentType: string }> {
+  return new Promise((resolve, reject) => {
+    let settled = false;
+    const finish = (callback: () => void) => {
+      if (settled) {
+        return;
+      }
+      settled = true;
+      clearTimeout(hardTimeout);
+      callback();
+    };
+    const hardTimeout = setTimeout(() => {
+      finish(() => reject(new Error("request hard timeout: " + url)));
+    }, 15000);
+
+    const request = https.get(
+      url,
+      {
+        timeout: 12000,
+        headers: {
+          "User-Agent": "Mozilla/5.0",
+          Referer: referer,
+        },
+      },
+      (response) => {
+        const statusCode = response.statusCode ?? 0;
+        const contentType = String(response.headers["content-type"] ?? "");
+        response.setEncoding("utf8");
+        let body = "";
+        response.on("data", (chunk) => {
+          body += chunk;
+        });
+        response.on("end", () => {
+          if (statusCode >= 400) {
+            finish(() =>
+              reject(new Error("request failed " + statusCode + ": " + url)),
+            );
+            return;
+          }
+          finish(() => resolve({ body, statusCode, contentType }));
+        });
+      },
+    );
+
+    request.setTimeout(12000);
+    request.on("timeout", () => {
+      request.destroy(new Error("request timeout: " + url));
+    });
+    request.on("error", (error) => {
+      finish(() => reject(error));
+    });
+  });
+}
+
+function tryParseJson(value: string): unknown {
+  try {
+    return JSON.parse(value);
+  } catch {
+    return undefined;
   }
 }

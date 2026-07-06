@@ -1,13 +1,14 @@
 (function () {
   const vscode = acquireVsCodeApi();
   const TEXT = {
-    loading: "\u6b63\u5728\u8bfb\u53d6\u7ebf\u4e0a\u6570\u636e",
+    loading: "\u6b63\u5728\u8bfb\u53d6\u672c\u5730 mock \u6570\u636e",
     noData: "\u6682\u65e0\u6570\u636e",
     latest: "\u6700\u65b0\u4f30\u503c",
     dataTime: "\u6570\u636e\u83b7\u53d6\u65f6\u95f4",
     estimateTime: "\u4f30\u503c\u65f6\u95f4",
     detail: "\u8be6\u60c5",
     history: "\u5386\u53f2\u56de\u6d4b",
+    apiDebug: "\u63a5\u53e3\u8c03\u8bd5",
     algorithm1: "\u7b97\u6cd51 \u5168\u91cf\u6301\u4ed3\u4f30\u503c",
     algorithm3: "\u7b97\u6cd53 \u5feb\u901f\u4f30\u503c",
     algorithm1Desc:
@@ -30,6 +31,7 @@
   const subtitle = $("subtitle");
   const fundList = $("fundList");
   const refreshButton = $("refreshButton");
+  const debugButton = $("debugButton");
   const marketBar = $("marketBar");
   const modalBackdrop = $("modalBackdrop");
   const modalTitle = $("modalTitle");
@@ -40,8 +42,9 @@
   refreshButton?.addEventListener("click", () => {
     console.log("refresh button clicked");
     setStatus(TEXT.loading);
-    vscode.postMessage({ type: "ready" });
+    vscode.postMessage({ type: "refresh" });
   });
+  debugButton?.addEventListener("click", showDebug);
   modalClose?.addEventListener("click", closeModal);
   modalBackdrop?.addEventListener("click", (event) => {
     if (event.target === modalBackdrop) closeModal();
@@ -57,9 +60,12 @@
   window.addEventListener("message", (event) => {
     const message = event.data;
     console.log("received message:", message.type);
-    subtitle.textContent = "收到消息: " + message.type;
     if (message.type === "error") {
       setStatus(message.payload.message || "\u8bfb\u53d6\u5931\u8d25");
+      return;
+    }
+    if (message.type === "debugResult") {
+      renderDebugResult(message.payload);
       return;
     }
     if (message.type !== "data") return;
@@ -68,7 +74,8 @@
     state.modes = message.payload.modes || state.modes;
     state.market = message.payload.market || null;
     subtitle.textContent =
-      "\u66f4\u65b0\u4e8e " + (state.market?.updatedAt || "--");
+      "\u672c\u5730 mock \u6570\u636e\u66f4\u65b0\u4e8e " +
+      (state.market?.updatedAt || "--");
     render();
   });
 
@@ -163,6 +170,52 @@
         .addEventListener("click", () => showHistory(fund));
       fundList.appendChild(card);
     }
+  }
+
+  function showDebug() {
+    modalTitle.textContent = TEXT.apiDebug;
+    modalMeta.textContent =
+      "\u9636\u6bb52\uff1a\u70b9\u51fb\u6309\u94ae\u7531 Extension Host \u8bf7\u6c42\u4e09\u65b9\u63a5\u53e3\uff0c\u8fd4\u56de JSON \u6216\u539f\u59cb\u54cd\u5e94\u6458\u8981\u3002";
+    modalBody.innerHTML =
+      '<div class="debug-actions">' +
+      debugButtonHtml("market", "\u9876\u90e8\u6307\u6807") +
+      debugButtonHtml("quotes", "\u91cd\u4ed3\u80a1\u7968\u884c\u60c5") +
+      debugButtonHtml("fundTop10", "270023 \u6700\u65b0\u5341\u5927") +
+      debugButtonHtml("fundFull", "270023 \u5168\u91cf\u6301\u4ed3") +
+      "</div>" +
+      '<pre id="debugOutput" class="json-output">\u9009\u62e9\u4e00\u4e2a\u63a5\u53e3\u5f00\u59cb\u8c03\u8bd5\u3002</pre>';
+
+    modalBody.querySelectorAll(".debug-api").forEach((button) => {
+      button.addEventListener("click", () => {
+        const key = button.dataset.key;
+        const output = $("debugOutput");
+        if (output) {
+          output.textContent = "\u8bf7\u6c42\u4e2d...";
+        }
+        vscode.postMessage({ type: "debugApi", key });
+      });
+    });
+    openModal();
+  }
+
+  function renderDebugResult(payload) {
+    let output = $("debugOutput");
+    if (!output) {
+      showDebug();
+      output = $("debugOutput");
+    }
+    if (!output) return;
+    output.textContent = JSON.stringify(payload, null, 2);
+  }
+
+  function debugButtonHtml(key, label) {
+    return (
+      '<button type="button" class="small-button debug-api" data-key="' +
+      escapeHtml(key) +
+      '">' +
+      escapeHtml(label) +
+      "</button>"
+    );
   }
 
   function showDetail(fund) {

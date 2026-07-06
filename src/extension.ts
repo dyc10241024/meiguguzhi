@@ -42,6 +42,13 @@ export function activate(context: vscode.ExtensionContext) {
       provider.refresh();
     }),
   );
+
+  context.subscriptions.push(
+    vscode.commands.registerCommand("meiguguzhi.debugApi", (key?: string) => {
+      output.appendLine("command debugApi: " + String(key));
+      void provider.runDebugApi(key);
+    }),
+  );
 }
 
 export function deactivate() {

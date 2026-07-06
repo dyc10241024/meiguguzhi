@@ -28,6 +28,10 @@
       {
         "command": "meiguguzhi.backtest",
         "title": "\u7f8e\u80a1\u4f30\u503c: \u56de\u6d4b"
+      },
+      {
+        "command": "meiguguzhi.debugApi",
+        "title": "\u7f8e\u80a1\u4f30\u503c: \u63a5\u53e3\u8c03\u8bd5"
       }
     ],
     "viewsContainers": {
