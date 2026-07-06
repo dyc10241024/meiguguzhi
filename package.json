@@ -26,10 +26,6 @@
         "title": "\u7f8e\u80a1\u4f30\u503c: \u5237\u65b0"
       },
       {
-        "command": "meiguguzhi.backtest",
-        "title": "\u7f8e\u80a1\u4f30\u503c: \u56de\u6d4b"
-      },
-      {
         "command": "meiguguzhi.debugApi",
         "title": "\u7f8e\u80a1\u4f30\u503c: \u63a5\u53e3\u8c03\u8bd5"
       }
@@ -55,11 +51,6 @@
     "configuration": {
       "title": "\u7f8e\u80a1 QDII \u4f30\u503c\u52a9\u624b",
       "properties": {
-        "meiguguzhi.backtestDays": {
-          "type": "number",
-          "default": 20,
-          "description": "\u9ed8\u8ba4\u56de\u6d4b\u51c0\u503c\u65e5\u6570\u91cf"
-        },
         "meiguguzhi.funds": {
           "type": "array",
           "default": [
@@ -75,8 +66,7 @@
   "scripts": {
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
-    "backtest": "npm run compile && node out/scripts/backtest.js",
-    "check": "npm run compile && npm run backtest"
+    "check": "npm run compile"
   },
   "devDependencies": {
     "@types/node": "^22.13.10",

@@ -1,4 +1,4 @@
-import * as fs from "fs";
+import * as childProcess from "child_process";
 import * as https from "https";
 import * as path from "path";
 import * as vscode from "vscode";
@@ -9,6 +9,7 @@ type WebviewMessage = {
   key?: string;
 };
 
+const DEBUG_REPORT_PARAMS = getLatestReportCandidate();
 const DEBUG_APIS: Record<
   string,
   { title: string; url: string; referer: string }
@@ -29,11 +30,31 @@ const DEBUG_APIS: Record<
     referer: "https://fundf10.eastmoney.com/ccmx_270023.html",
   },
   fundFull: {
-    title: "270023 2025-12 全量持仓 fundf10",
-    url: "https://fundf10.eastmoney.com/FundArchivesDatas.aspx?type=jjcc&code=270023&topline=1000&year=2025&month=12",
+    title:
+      "270023 最近候选全量持仓 fundf10 " +
+      DEBUG_REPORT_PARAMS.year +
+      "-" +
+      DEBUG_REPORT_PARAMS.month,
+    url:
+      "https://fundf10.eastmoney.com/FundArchivesDatas.aspx?type=jjcc&code=270023&topline=1000&year=" +
+      DEBUG_REPORT_PARAMS.year +
+      "&month=" +
+      DEBUG_REPORT_PARAMS.month,
     referer: "https://fundf10.eastmoney.com/ccmx_270023.html",
   },
 };
+
+function getLatestReportCandidate(): { year: string; month: string } {
+  const now = new Date(Date.now() + 8 * 3600 * 1000);
+  const year = now.getUTCFullYear();
+  const currentMonth = now.getUTCMonth() + 1;
+  for (const month of [12, 9, 6, 3]) {
+    if (month <= currentMonth) {
+      return { year: String(year), month: String(month) };
+    }
+  }
+  return { year: String(year - 1), month: "12" };
+}
 
 export class QdiiViewProvider implements vscode.WebviewViewProvider {
   public static readonly viewType = "meiguguzhi.view";
@@ -77,22 +98,16 @@ export class QdiiViewProvider implements vscode.WebviewViewProvider {
   }
 
   public async refresh(): Promise<void> {
-    this.output.appendLine("refresh: loading mock data");
+    this.output.appendLine("refresh: loading live data");
     if (!this.view) {
       this.output.appendLine("refresh: no view");
       return;
     }
 
     try {
-      const mockPath = path.join(
-        this.context.extensionPath,
-        "data",
-        "mock.json",
-      );
-      const mockContent = fs.readFileSync(mockPath, "utf-8");
-      const payload = JSON.parse(mockContent) as AnyFund;
+      const payload = await runLiveDataScript(this.context.extensionPath);
       this.output.appendLine(
-        "posting mock data: algorithm1=" +
+        "posting live data: algorithm1=" +
           payload.modes.algorithm1.length +
           ", algorithm3=" +
           payload.modes.algorithm3.length,
@@ -104,7 +119,7 @@ export class QdiiViewProvider implements vscode.WebviewViewProvider {
       this.output.appendLine("postMessage result: " + success);
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
-      this.output.appendLine("refresh error: " + message);
+      this.output.appendLine("refresh live error: " + message);
       await this.view.webview.postMessage({
         type: "error",
         payload: { message },
@@ -213,7 +228,7 @@ export class QdiiViewProvider implements vscode.WebviewViewProvider {
     <header class="topbar">
       <div>
         <h1>QDII &#20272;&#20540;</h1>
-        <p id="subtitle">&#27491;&#22312;&#35835;&#21462;&#26412;&#22320; mock &#25968;&#25454;</p>
+        <p id="subtitle">&#27491;&#22312;&#35835;&#21462;&#30495;&#23454;&#25509;&#21475;&#25968;&#25454;</p>
       </div>
       <div class="top-actions">
         <button id="debugButton" class="text-button" title="&#25509;&#21475;&#35843;&#35797;" aria-label="&#25509;&#21475;&#35843;&#35797;">&#35843;&#35797;</button>
@@ -325,4 +340,38 @@ function tryParseJson(value: string): unknown {
   } catch {
     return undefined;
   }
+}
+
+function runLiveDataScript(extensionPath: string): Promise<AnyFund> {
+  return new Promise((resolve, reject) => {
+    const scriptPath = path.join(extensionPath, "scripts", "live-data.js");
+    childProcess.execFile(
+      "node",
+      [scriptPath, extensionPath],
+      {
+        cwd: extensionPath,
+        timeout: 150000,
+        maxBuffer: 50 * 1024 * 1024,
+        windowsHide: true,
+      },
+      (error, stdout, stderr) => {
+        if (error) {
+          reject(new Error((stderr || error.message).trim()));
+          return;
+        }
+        try {
+          resolve(JSON.parse(stdout) as AnyFund);
+        } catch (parseError) {
+          reject(
+            new Error(
+              "live-data parse failed: " +
+                String(parseError) +
+                "\n" +
+                stdout.slice(0, 1000),
+            ),
+          );
+        }
+      },
+    );
+  });
 }

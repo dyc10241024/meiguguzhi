@@ -1,10 +1,13 @@
 (function () {
   const vscode = acquireVsCodeApi();
   const TEXT = {
-    loading: "\u6b63\u5728\u8bfb\u53d6\u672c\u5730 mock \u6570\u636e",
+    loading: "\u6b63\u5728\u8bfb\u53d6\u771f\u5b9e\u63a5\u53e3\u6570\u636e",
     noData: "\u6682\u65e0\u6570\u636e",
     latest: "\u6700\u65b0\u4f30\u503c",
     dataTime: "\u6570\u636e\u83b7\u53d6\u65f6\u95f4",
+    source: "\u6570\u636e\u6765\u6e90",
+    quoteTime: "\u884c\u60c5\u83b7\u53d6\u65f6\u95f4",
+    reportDate: "\u6301\u4ed3\u62a5\u544a\u671f",
     estimateTime: "\u4f30\u503c\u65f6\u95f4",
     detail: "\u8be6\u60c5",
     history: "\u5386\u53f2\u56de\u6d4b",
@@ -12,9 +15,9 @@
     algorithm1: "\u7b97\u6cd51 \u5168\u91cf\u6301\u4ed3\u4f30\u503c",
     algorithm3: "\u7b97\u6cd53 \u5feb\u901f\u4f30\u503c",
     algorithm1Desc:
-      "\u7528 2025Q4 \u5168\u91cf\u5e95\u4ed3 + 2026Q1 \u6700\u65b0\u5341\u5927\u66ff\u6362\u540e\u91cd\u6392\u4f30\u7b97",
+      "\u7528\u6700\u65b0\u53ef\u83b7\u53d6\u7684\u5168\u91cf\u5e95\u4ed3 + \u6700\u65b0\u5341\u5927\u66ff\u6362\u540e\u91cd\u6392\u4f30\u7b97",
     algorithm3Desc:
-      "\u62c9\u53d6 2026Q1 \u6700\u65b0\u5341\u5927\u6301\u4ed3\u5f52\u4e00\u5316 + \u80a1\u7968\u7c7b\u5360\u6bd4 + \u6c47\u7387 + \u5386\u53f2\u6821\u51c6",
+      "\u62c9\u53d6\u6700\u65b0\u5b63\u5ea6\u524d\u5341\u5927\u6301\u4ed3\u5f52\u4e00\u5316 + \u80a1\u7968\u7c7b\u5360\u6bd4 + \u6c47\u7387 + \u5386\u53f2\u6821\u51c6",
     alphaBetaHelp:
       "alpha/beta \u662f\u5386\u53f2\u6821\u51c6\u53c2\u6570\uff1a\u7528\u8fc7\u53bb\u6570\u636e\u62df\u5408 actual = alpha + beta * raw\u3002",
     maeHelp:
@@ -74,7 +77,7 @@
     state.modes = message.payload.modes || state.modes;
     state.market = message.payload.market || null;
     subtitle.textContent =
-      "\u672c\u5730 mock \u6570\u636e\u66f4\u65b0\u4e8e " +
+      "\u771f\u5b9e\u63a5\u53e3\u6570\u636e | \u6307\u6807\u6570\u636e\u65f6\u95f4 " +
       (state.market?.updatedAt || "--");
     render();
   });
@@ -147,18 +150,27 @@
         "</span><strong>" +
         escapeHtml(latest.beijingTime || "--") +
         "</strong></div>" +
-        "<div><span>" +
+        '<div class="list-meta"><small>' +
         TEXT.dataTime +
-        "</span><strong>" +
+        " " +
         escapeHtml(shortTime(fund.dataFetchedAt)) +
-        "</strong></div>" +
+        "</small><small>" +
+        TEXT.reportDate +
+        " " +
+        escapeHtml(
+          latest.holdingReportDate ||
+            fund.dataSourceSummary?.holdings?.reportDate ||
+            fund.reportDate ||
+            "--",
+        ) +
+        "</small></div>" +
         '<div class="card-actions"><button class="small-button detail" type="button">' +
         TEXT.detail +
         '</button><button class="small-button history" type="button">' +
         TEXT.history +
         "</button></div>" +
         "</div>";
-      card.addEventListener("click", (event) => {
+      card.addEventListener("dblclick", (event) => {
         if (event.target.closest("button")) return;
         showDetail(fund);
       });
@@ -250,11 +262,32 @@
       ) +
       summaryItem(
         "\u6570\u636e\u6765\u6e90",
-        fund.source || modeName(state.mode),
+        fund.dataSourceSummary?.holdings?.source ||
+          fund.source ||
+          modeName(state.mode),
+      ) +
+      summaryItem(
+        "\u884c\u60c5\u6765\u6e90",
+        fund.dataSourceSummary?.quotes?.source || "--",
       ) +
       summaryItem(
         "\u62a5\u544a\u671f",
-        fund.reportDate || fund.assetAllocation?.reportDate || "--",
+        fund.dataSourceSummary?.holdings?.reportDate ||
+          fund.reportDate ||
+          fund.assetAllocation?.reportDate ||
+          "--",
+      ) +
+      summaryItem(
+        "\u6301\u4ed3\u83b7\u53d6\u65f6\u95f4",
+        shortTime(fund.dataSourceSummary?.holdings?.fetchedAt),
+      ) +
+      summaryItem(
+        "\u884c\u60c5\u83b7\u53d6\u65f6\u95f4",
+        shortTime(fund.dataSourceSummary?.quotes?.fetchedAt),
+      ) +
+      summaryItem(
+        "\u6307\u6807\u6570\u636e\u65f6\u95f4",
+        fund.dataSourceSummary?.market?.dataTime || "--",
       ) +
       "</div>" +
       holdingTable(holdings);
@@ -293,7 +326,7 @@
         '<div class="history-table">' +
         rows
           .slice()
-          .reverse()
+          .sort((a, b) => String(b.navDate).localeCompare(String(a.navDate)))
           .map(
             (row) =>
               '<div class="history-row"><span>' +
@@ -322,7 +355,7 @@
     if (!holdings.length)
       return '<div class="empty-state">' + TEXT.noData + "</div>";
     const header =
-      '<div class="holding-row"><span>持仓</span><code>代码</code><b class="market-name">市场</b><b class="weight-pct">占比</b><b>涨跌幅</b><b>贡献值</b></div>';
+      '<div class="holding-row"><span>持仓</span><code>代码</code><b class="market-name">市场</b><b class="weight-pct">占比</b><b>涨跌幅</b><b>贡献值</b><b>来源</b><b>获取时间</b></div>';
     return (
       '<div class="holding-table">' +
       header +
@@ -346,7 +379,11 @@
             '</b><b class="' +
             tone(holding.contributionPct) +
             '">' +
-            formatPct(holding.contributionPct) +
+            formatPct6(holding.contributionPct) +
+            "</b><b>" +
+            escapeHtml(holding.source || holding.dataSource || "--") +
+            "</b><b>" +
+            escapeHtml(shortTime(holding.dataFetchedAt)) +
             "</b></div>",
         )
         .join("") +
@@ -394,6 +431,13 @@
       return "--";
     const number = Number(value);
     return (number > 0 ? "+" : "") + number.toFixed(2) + "%";
+  }
+
+  function formatPct6(value) {
+    if (value === undefined || value === null || Number.isNaN(Number(value)))
+      return "--";
+    const number = Number(value);
+    return (number > 0 ? "+" : "") + number.toFixed(6) + "%";
   }
 
   function formatPctNoSign(value) {

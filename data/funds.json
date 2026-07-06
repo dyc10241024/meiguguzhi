@@ -1,0 +1,43 @@
+{
+  "funds": [
+    {
+      "code": "270023",
+      "name": "\u5e7f\u53d1\u5168\u7403\u7cbe\u9009",
+      "assetAllocation": {
+        "reportDate": "2026-03-31",
+        "stockPct": 87.14,
+        "depositaryReceiptPct": 0.2,
+        "cashPct": 9.84,
+        "bondPct": 0,
+        "otherPct": 2.82,
+        "equityLikePct": 87.34
+      }
+    },
+    {
+      "code": "501226",
+      "name": "\u957f\u57ce\u5168\u7403\u65b0\u80fd\u6e90\u8f66",
+      "assetAllocation": {
+        "reportDate": "2026-03-31",
+        "stockPct": 78.95,
+        "depositaryReceiptPct": 8.83,
+        "cashPct": 13.38,
+        "bondPct": 0,
+        "otherPct": 0,
+        "equityLikePct": 87.78
+      }
+    },
+    {
+      "code": "017436",
+      "name": "\u534e\u5b9d\u7eb3\u65af\u8fbe\u514b\u7cbe\u9009",
+      "assetAllocation": {
+        "reportDate": "2026-03-31",
+        "stockPct": 91.97,
+        "depositaryReceiptPct": 0.25,
+        "cashPct": 8.53,
+        "bondPct": 0,
+        "otherPct": 0,
+        "equityLikePct": 92.22
+      }
+    }
+  ]
+}

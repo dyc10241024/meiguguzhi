@@ -142,7 +142,7 @@ h1 {
 }
 .list-row {
   display: grid;
-  grid-template-columns: 1fr 1fr auto;
+  grid-template-columns: 1fr 1fr 1.4fr auto;
   align-items: end;
   gap: 10px;
   margin-top: 12px;
@@ -156,6 +156,9 @@ h1 {
   display: block;
   color: var(--vscode-descriptionForeground);
   font-size: 11px;
+}
+.list-meta {
+  align-self: end;
 }
 .card-actions {
   display: flex;
@@ -269,7 +272,7 @@ h1 {
 }
 .holding-row {
   display: grid;
-  grid-template-columns: 1.4fr 0.9fr 0.45fr 0.6fr 0.6fr 0.7fr;
+  grid-template-columns: 1.4fr 0.9fr 0.45fr 0.55fr 0.55fr 0.65fr 0.75fr 0.9fr;
   gap: 8px;
   align-items: center;
   padding: 7px 8px;
